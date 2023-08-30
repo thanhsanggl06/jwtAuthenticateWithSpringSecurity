@@ -8,7 +8,7 @@ RUN mvn clean package -DskipTests
 #
 # Package stage
 #
-FROM openjdk:11-jdk-slim
-COPY --from=build /target/spring-security-0.0.1-SNAPSHOT.jar
+FROM openjdk:17-jdk-slim
+COPY --from=build /target/spring-security-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","demo.jar"]
